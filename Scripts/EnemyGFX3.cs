@@ -1,0 +1,20 @@
+using Pathfinding;
+using UnityEngine;
+public class EnemyGFX3 : MonoBehaviour
+{
+    [SerializeField] AIPath aiPath;
+    [SerializeField] Transform firePoint;
+    void Update()
+    {
+        if (aiPath.desiredVelocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(-3, 3, 1);
+            firePoint.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (aiPath.desiredVelocity.x <= -0.01f)
+        {
+            transform.localScale = new Vector3(3, 3, 1);
+            firePoint.rotation = Quaternion.Euler(0, 0, -180);
+        }
+    }
+}
